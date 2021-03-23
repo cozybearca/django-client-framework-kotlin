@@ -42,6 +42,8 @@ data class Product (
         get() { return RelatedObjectManager(this, "replacing") }
     val parent: RelatedObjectManager<Product, Product>
         get() { return RelatedObjectManager(this, "parent") }
+//    val brand: RelatedObjectManager<Brand, Product>
+//        get() { return RelatedObjectManager(this, "brand") }
 }
 
 enum class PricingUnit { box, pack, unit }
