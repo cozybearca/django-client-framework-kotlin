@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform") version "1.4.30"
     id("com.android.library")
     kotlin("plugin.serialization") version "1.4.30"
+
 }
 
 group = "me.yuli"
@@ -19,6 +20,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+                implementation("com.squareup.retrofit2:retrofit:2.7.1")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+                //implementation("com.squareup.okhttp3:okhttp:4.9.0")
             }
         }
         val commonTest by getting {

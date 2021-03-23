@@ -25,6 +25,7 @@ class CollectionManager<T : Model> {
      *
      */
     suspend fun page(query: Map<String, Any?> = emptyMap(), page: Pagination = Pagination()): PageResult<T> {
+        
         throw NotImplementedError()
     }
 
