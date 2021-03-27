@@ -1,8 +1,8 @@
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
-import django_client_framework.*
+
+import django_client_framework.Model
+import django_client_framework.RelatedCollectionManager
+import django_client_framework.RelatedObjectManager
+import kotlinx.serialization.Serializable
 
 @Serializable
 data class Product (
@@ -42,6 +42,9 @@ data class Product (
         get() { return RelatedObjectManager(this, "replacing") }
     val parent: RelatedObjectManager<Product, Product>
         get() { return RelatedObjectManager(this, "parent") }
+    override fun getClassName(): String {
+        return "product"
+    }
 //    val brand: RelatedObjectManager<Brand, Product>
 //        get() { return RelatedObjectManager(this, "brand") }
 }
@@ -82,6 +85,9 @@ data class Order (
     val shop_status: ShopStatus,
     val user_id: Long
 ): Model {
+    override fun getClassName(): String {
+        return "order"
+    }
 }
 
 enum class CustomerStatus { paid, received, unpaid }
