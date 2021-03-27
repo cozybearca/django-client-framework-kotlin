@@ -11,7 +11,7 @@ data class Pagination(
 
 class CollectionManager {
     companion object {
-        const val WEBLINK = "https://cozybear.ca"
+        const val WEBLINK = "https://cozybear.ca/api/v1"
     }
 
     /**
@@ -35,9 +35,9 @@ class CollectionManager {
      *      //-> [] represents array type
      *
      */
-    fun page(itm: String = "product", query: Map<String, Any?> = emptyMap(), page: Pagination = Pagination()): String {
 
-        var pageLink = "$WEBLINK/api/v1/$itm?";
+    fun convertList(query: Map<String, Any?>){
+
         for ((k,v) in query){
             if ((k.takeLast(4)) == "__in"){
                 if (v is List<*>){
@@ -51,11 +51,20 @@ class CollectionManager {
             }
             println(pageLink)
         }
+
+    }
+
+    fun page(itm: String = "product", query: Map<String, Any?> = emptyMap(), page: Pagination = Pagination()): String {
+
+        var pageLink = "$WEBLINK/$itm?";
+        var pathSegment = itm;
+
         pageLink += "_limit=${page.limit}&_page=${page.page}&_order_by=${page.order_by}"
         println(pageLink)
         val x = Requests()
         var S = x.runFiles(pageLink)
         return S.trimIndent()
+        return "S"
     }
 
     /**

@@ -1,8 +1,5 @@
-@file:Suppress("UnusedImport")
-
 package django_client_framework
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import okhttp3.*
 
 class Requests {
     var client = OkHttpClient()
@@ -16,6 +13,4 @@ class Requests {
         if (body != null) return body;
         return "Error"
     }
-
-
 }

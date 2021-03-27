@@ -19,7 +19,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
-                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+                //implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
                 //implementation("com.squareup.okhttp3:okhttp:4.9.0")
             }
         }
@@ -37,6 +37,7 @@ kotlin {
         val androidMain by getting{
             dependencies {
                 implementation("com.squareup.okhttp3:okhttp:4.9.0")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
             }
         }
     }
